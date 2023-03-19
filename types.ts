@@ -1,3 +1,5 @@
+import {SetStateAction, Dispatch } from 'react';
+
 interface spaceXPayload {
     id: string
     type: string
@@ -35,9 +37,28 @@ interface spaceXResponse {
     totalPages: number
 }
 
+interface LaunchTableRowProps {
+    data: spaceXLaunch
+}
+
+interface PaginationProps {
+    page: number
+    setPage: Dispatch<SetStateAction<number>>
+    pageSize: number
+    setPageSize: Dispatch<SetStateAction<number>>
+    totalPages: number
+  }
+
+interface LaunchDataTableProps{
+    launches: spaceXLaunch[]
+}
+
 export type {
     spaceXResponse,
     spaceXLaunch,
     spaceXPayload,
-    spaceXFailures
+    spaceXFailures,
+    LaunchTableRowProps,
+    PaginationProps,
+    LaunchDataTableProps
 }
